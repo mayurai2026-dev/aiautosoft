@@ -1,10 +1,10 @@
-# 🚀 Welcome to Z.ai Code Scaffold
+# 🚀 Ai Auto Soft - WhatsApp ERP Automation Platform
 
-A modern, production-ready web application scaffold powered by cutting-edge technologies, designed to accelerate your development with [Z.ai](https://chat.z.ai)'s AI-powered coding assistance.
+A modern, production-ready web application for automating Busy ERP workflows on WhatsApp, built with cutting-edge technologies. Visit us at [aiautosoft.com](https://aiautosoft.com).
 
 ## ✨ Technology Stack
 
-This scaffold provides a robust foundation built with:
+This application provides a robust foundation built with:
 
 ### 🎯 Core Framework
 - **⚡ Next.js 16** - The React framework for production with App Router
@@ -41,7 +41,7 @@ This scaffold provides a robust foundation built with:
 - **📅 Date-fns** - Modern JavaScript date utility library
 - **🪝 ReactUse** - Collection of essential React hooks for modern development
 
-## 🎯 Why This Scaffold?
+## 🎯 Why Ai Auto Soft?
 
 - **🏎️ Fast Development** - Pre-configured tooling and best practices
 - **🎨 Beautiful UI** - Complete shadcn/ui component library with advanced interactions
@@ -52,7 +52,7 @@ This scaffold provides a robust foundation built with:
 - **📊 Data Visualization** - Charts, tables, and drag-and-drop functionality
 - **🌍 i18n Ready** - Multi-language support with Next Intl
 - **🚀 Production Ready** - Optimized build and deployment settings
-- **🤖 AI-Friendly** - Structured codebase perfect for AI assistance
+- **🤖 WhatsApp Integration** - Seamless WhatsApp Business API integration
 
 ## 🚀 Quick Start
 
@@ -72,24 +72,39 @@ bun start
 
 Open [http://localhost:3000](http://localhost:3000) to see your application running.
 
-## 🤖 Powered by Z.ai
+## 🌟 Key Features
 
-This scaffold is optimized for use with [Z.ai](https://chat.z.ai) - your AI assistant for:
+### WhatsApp Automation
+- **💳 Payment Reminders** - Automated dunning that recovers payments 30% faster
+- **🤖 24/7 ERP Chatbot** - Customer self-service via WhatsApp
+- **📦 Credit Management** - Proactive credit controls & alerts
+- **🚚 Transport Automation** - Real-time logistics updates
 
-- **💻 Code Generation** - Generate components, pages, and features instantly
-- **🎨 UI Development** - Create beautiful interfaces with AI assistance  
-- **🔧 Bug Fixing** - Identify and resolve issues with intelligent suggestions
-- **📝 Documentation** - Auto-generate comprehensive documentation
-- **🚀 Optimization** - Performance improvements and best practices
-
-Ready to build something amazing? Start chatting with Z.ai at [chat.z.ai](https://chat.z.ai) and experience the future of AI-powered development!
+### Business Solutions
+- **For Distributors** - Wholesale & distribution automation
+- **For Transport** - Logistics & fleet management
+- **For Manufacturers** - Production & inventory tracking
+- **For Retailers** - Retail & e-commerce integration
 
 ## 📁 Project Structure
 
 ```
 src/
 ├── app/                 # Next.js App Router pages
+│   ├── home/           # Home page with hero and chat demo
+│   ├── payment-reminders/
+│   ├── erp-chatbot/
+│   ├── credit-management/
+│   ├── transport-automation/
+│   ├── for-distributors/
+│   ├── for-transport/
+│   ├── for-manufacturers/
+│   ├── for-retailers/
+│   └── ...
 ├── components/          # Reusable React components
+│   ├── demo/           # WhatsApp chat demo component
+│   ├── sections/       # Reusable page sections
+│   ├── shared/         # Navbar, Footer, etc.
 │   └── ui/             # shadcn/ui components
 ├── hooks/              # Custom React hooks
 └── lib/                # Utility functions and configurations
@@ -97,7 +112,7 @@ src/
 
 ## 🎨 Available Features & Components
 
-This scaffold includes a comprehensive set of modern web development tools:
+This application includes a comprehensive set of modern web development tools:
 
 ### 🧩 UI Components (shadcn/ui)
 - **Layout**: Card, Separator, Aspect Ratio, Resizable Panels
@@ -129,13 +144,15 @@ This scaffold includes a comprehensive set of modern web development tools:
 - **Type Safety**: End-to-end TypeScript with Zod validation
 - **Essential Hooks**: 100+ useful React hooks with ReactUse for common patterns
 
-## 🤝 Get Started with Z.ai
+## 📞 Contact & Support
 
-1. **Clone this scaffold** to jumpstart your project
-2. **Visit [chat.z.ai](https://chat.z.ai)** to access your AI coding assistant
-3. **Start building** with intelligent code generation and assistance
-4. **Deploy with confidence** using the production-ready setup
+- **Website**: [aiautosoft.com](https://aiautosoft.com)
+- **Email**: aiautosoft26@gmail.com
+- **Phone**: +91 92037 04508
+- **WhatsApp**: [wa.me/919203704508](https://wa.me/919203704508)
+- **Facebook**: [Ai Auto Soft](https://www.facebook.com/profile.php?id=61584157602190)
+- **Instagram**: [@ai_autosoft](https://www.instagram.com/ai_autosoft/)
 
 ---
 
-Built with ❤️ for the developer community. Supercharged by [Z.ai](https://chat.z.ai) 🚀
+Built with ❤️ for Indian businesses. Trusted by 500+ traders and manufacturers. [aiautosoft.com](https://aiautosoft.com) 🚀
