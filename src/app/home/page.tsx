@@ -34,6 +34,8 @@ import {
   Mail,
   Facebook,
   Instagram,
+  Twitter,
+  Youtube,
 } from "lucide-react";
 import WhatsAppChatDemo from "@/components/demo/WhatsAppChatDemo";
 
@@ -636,6 +638,24 @@ export default function HomePage() {
                   aria-label="Instagram"
                 >
                   <Instagram className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://twitter.com/aiautosoft"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-full bg-[#0F172A]/10 flex items-center justify-center text-[#0F172A] hover:bg-[#1DA1F2] hover:text-white transition-all"
+                  aria-label="Twitter"
+                >
+                  <Twitter className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://youtube.com/@aiautosoft"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-full bg-[#0F172A]/10 flex items-center justify-center text-[#0F172A] hover:bg-[#FF0000] hover:text-white transition-all"
+                  aria-label="YouTube"
+                >
+                  <Youtube className="w-5 h-5" />
                 </a>
               </div>
             </div>

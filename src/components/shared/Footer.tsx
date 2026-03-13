@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { MessageCircle, Mail, Phone, MapPin, Facebook, Instagram } from "lucide-react";
+import { MessageCircle, Mail, Phone, MapPin, Facebook, Instagram, Twitter, Youtube } from "lucide-react";
 
 const footerLinks = {
   services: [
@@ -40,6 +40,16 @@ const socialLinks = [
     name: "Instagram", 
     icon: Instagram, 
     href: "https://www.instagram.com/ai_autosoft/" 
+  },
+  { 
+    name: "Twitter", 
+    icon: Twitter, 
+    href: "https://twitter.com/aiautosoft" // TODO: Replace with actual Twitter URL
+  },
+  { 
+    name: "YouTube", 
+    icon: Youtube, 
+    href: "https://youtube.com/@aiautosoft" // TODO: Replace with actual YouTube URL
   },
 ];
 
