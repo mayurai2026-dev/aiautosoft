@@ -177,9 +177,9 @@ export default function HomePage() {
                 className="relative"
               >
                 <div className="relative">
-                  {/* Main Phone Mockup */}
-                  <div className="relative z-10 mx-auto max-w-xs sm:max-w-sm">
-                    <div className="bg-[#0F172A] rounded-[2.5rem] sm:rounded-[3rem] p-2 sm:p-3 shadow-2xl">
+                  {/* Main Phone Mockup - Width decreased by 25% for better proportions */}
+                  <div className="relative z-10 mx-auto max-w-[240px] sm:max-w-[288px]">
+                    <div className="bg-[#0F172A] rounded-[2rem] sm:rounded-[2.5rem] p-2 sm:p-2.5 shadow-2xl">
                       <div className="bg-white rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden">
                         {/* Phone Screen Content */}
                         <div className="bg-[#075E54] p-3 sm:p-4 text-white">

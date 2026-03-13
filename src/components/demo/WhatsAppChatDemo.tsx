@@ -41,6 +41,22 @@ const chatSequences: ChatSequence[] = [
   }
 ];
 
+// WhatsApp-style double tick icons
+function DoubleTick({ isRead }: { isRead: boolean }) {
+  return (
+    <motion.svg
+      initial={{ scale: 0.8 }}
+      animate={{ scale: 1 }}
+      className={`w-3.5 h-3.5 ${isRead ? "text-[#53BDEB]" : "text-gray-400"}`}
+      viewBox="0 0 16 15"
+      fill="currentColor"
+    >
+      <path d="M15.01 3.316l-.478-.372a.365.365 0 0 0-.51.063L8.666 9.879a.32.32 0 0 1-.484.033l-1.88-1.88a.365.365 0 0 0-.517 0l-.423.423a.365.365 0 0 0 0 .516l2.673 2.673a.365.365 0 0 0 .516 0l6.072-6.273a.365.365 0 0 0-.063-.51z" />
+      <path d="M11.01 3.316l-.478-.372a.365.365 0 0 0-.51.063L4.666 9.879a.32.32 0 0 1-.484.033L2.302 8.032a.365.365 0 0 0-.517 0l-.423.423a.365.365 0 0 0 0 .516l2.673 2.673a.365.365 0 0 0 .516 0l6.072-6.273a.365.365 0 0 0-.063-.51z" />
+    </motion.svg>
+  );
+}
+
 // Typing indicator component (WhatsApp-style three dots)
 function TypingIndicator() {
   return (
@@ -75,7 +91,7 @@ function TypingIndicator() {
 }
 
 // User message component - RIGHT side, WHITE bubble
-function UserMessage({ content }: { content: string }) {
+function UserMessage({ content, isRead }: { content: string; isRead: boolean }) {
   return (
     <motion.div
       initial={{ opacity: 0, x: 30, scale: 0.9 }}
@@ -85,7 +101,10 @@ function UserMessage({ content }: { content: string }) {
     >
       <div className="bg-white rounded-2xl rounded-tr-sm px-4 py-2.5 shadow-sm max-w-[85%] border border-gray-100">
         <p className="text-sm text-gray-800 leading-relaxed">{content}</p>
-        <p className="text-[10px] text-gray-400 text-right mt-1">✓✓</p>
+        <div className="flex items-center justify-end gap-1 mt-1">
+          <span className="text-[10px] text-gray-400">12:34</span>
+          <DoubleTick isRead={isRead} />
+        </div>
       </div>
     </motion.div>
   );
@@ -133,7 +152,10 @@ function BotMessage({ content, subContent, icon }: {
             )}
           </div>
         </div>
-        <p className="text-[10px] text-[#075E54]/50 text-right mt-2">✓✓</p>
+        <div className="flex items-center justify-end gap-1 mt-2">
+          <span className="text-[10px] text-[#075E54]/50">12:34</span>
+          <DoubleTick isRead={true} />
+        </div>
       </div>
     </motion.div>
   );
@@ -146,6 +168,7 @@ interface RenderedMessage {
   content: string;
   subContent?: string;
   icon?: "file" | "package" | "truck" | "clock";
+  isRead: boolean;
 }
 
 export default function WhatsAppChatDemo() {
@@ -165,6 +188,15 @@ export default function WhatsAppChatDemo() {
       });
     }
   }, [messages, isBotTyping]);
+
+  // Mark user messages as read when bot responds
+  const markMessagesAsRead = (userMsgId: string) => {
+    setMessages(prev => 
+      prev.map(msg => 
+        msg.id === userMsgId ? { ...msg, isRead: true } : msg
+      )
+    );
+  };
 
   // Main animation loop
   useEffect(() => {
@@ -198,12 +230,13 @@ export default function WhatsAppChatDemo() {
           setTimeout(() => {
             setIsTypingInInput(false);
             
-            // Add user message to chat
+            // Add user message to chat (with grey ticks initially)
             const userMsgId = `user-${Date.now()}`;
             setMessages(prev => [...prev, {
               id: userMsgId,
               type: "user",
-              content: sequence.userMessage
+              content: sequence.userMessage,
+              isRead: false // Grey ticks initially
             }]);
             setInputText("");
             
@@ -215,6 +248,9 @@ export default function WhatsAppChatDemo() {
               setTimeout(() => {
                 setIsBotTyping(false);
                 
+                // Mark user message as read (turn ticks blue)
+                markMessagesAsRead(userMsgId);
+                
                 // Add bot response to chat
                 const botMsgId = `bot-${Date.now()}`;
                 setMessages(prev => [...prev, {
@@ -222,7 +258,8 @@ export default function WhatsAppChatDemo() {
                   type: "bot",
                   content: sequence.botResponse.content,
                   subContent: sequence.botResponse.subContent,
-                  icon: sequence.botResponse.icon
+                  icon: sequence.botResponse.icon,
+                  isRead: true
                 }]);
                 
                 // Move to next sequence after a delay
@@ -254,7 +291,7 @@ export default function WhatsAppChatDemo() {
       {/* Chat Messages Area - Fixed height with hidden scrollbar */}
       <div
         ref={chatContainerRef}
-        className="flex-1 p-3 sm:p-4 space-y-3 overflow-y-auto min-h-[200px] sm:min-h-[280px] max-h-[200px] sm:max-h-[280px] relative z-10
+        className="flex-1 p-3 sm:p-4 space-y-3 overflow-y-auto min-h-[210px] sm:min-h-[295px] max-h-[210px] sm:max-h-[295px] relative z-10
                    [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
       >
         <AnimatePresence mode="popLayout">
@@ -267,7 +304,7 @@ export default function WhatsAppChatDemo() {
               transition={{ duration: 0.3, ease: "easeOut" }}
             >
               {msg.type === "user" ? (
-                <UserMessage content={msg.content} />
+                <UserMessage content={msg.content} isRead={msg.isRead} />
               ) : (
                 <BotMessage 
                   content={msg.content} 
